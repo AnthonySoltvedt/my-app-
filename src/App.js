@@ -20,13 +20,13 @@ const projects = [
         title: "To-Do List CLI (Java)",
         description:
             "A command-line Java application with tasks, reminders, priority, and undo functionality.",
-        link: "https://github.com/AnthonySoltvedt/To-do-list-applications",
+        link: "https://github.com/AnthonySoltvedt/ToDoListCLI",
     },
     {
         title: "BBJ Tracker App",
         description:
             "A tracker app for logging BBJ sessions, progress, and personal routines.",
-        link: "https://github.com/AnthonySoltvedt/bjj-tracker/blob/main/bjj_tracker.py",
+        link: "https://github.com/AnthonySoltvedt/BBJTrackerApp",
     },
 ];
 
@@ -37,6 +37,7 @@ const uniProjects = [
             "Built a prototype application that processes and reshapes data from a provided dataset to generate specific outputs. Focused on data transformation, formatting, and structured output generation using modular program design.",
         link: "https://github.com/AnthonySoltvedt/Advanced-programming/blob/main/Assesment-1.ipynb",
     },
+
     {
         title: "Big Data Analytics",
         description:
@@ -71,28 +72,43 @@ function App() {
                 }}
             >
                 <a
+                    href="#about-me"
+                    style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}
+                >
+                    About Me
+                </a>
+                <a
                     href="#projects"
-                    style={{
-                        color: colors.textLight,
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                    }}
+                    style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}
                 >
                     Projects
                 </a>
                 <a
                     href="#contacts"
-                    style={{
-                        color: colors.textLight,
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                    }}
+                    style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}
                 >
                     Contact
                 </a>
             </nav>
 
-            {/* MAIN CONTENT */}
+            {/* ABOUT ME SECTION */}
+            <div
+                id="about-me"
+                style={{
+                    fontFamily: "Arial, sans-serif",
+                    padding: "40px",
+                    background: colors.mainBg,
+                    textAlign: "center",
+                }}
+            >
+                <h1 style={{ color: colors.accent, marginBottom: "10px" }}>About Me</h1>
+                <p style={{ color: colors.text, maxWidth: "700px", margin: "0 auto" }}>
+                    I am currently pursuing a <strong>Master’s degree in Computer Science and AI</strong> at the University of York. I also hold a degree in <strong>Music Production from BIMM London</strong>.
+                    I am passionate about combining technology and creativity to build innovative solutions and projects. My focus is on developing software that solves real-world problems, exploring AI applications, and continuing to grow as a developer.
+                </p>
+            </div>
+
+            {/* PROJECTS SECTION */}
             <div
                 id="projects"
                 style={{
@@ -101,33 +117,14 @@ function App() {
                     background: colors.mainBg,
                 }}
             >
-                <h1
-                    style={{
-                        textAlign: "center",
-                        marginBottom: "10px",
-                        color: colors.accent,
-                    }}
-                >
+                <h1 style={{ textAlign: "center", marginBottom: "10px", color: colors.accent }}>
                     Anthony’s Programming Projects
                 </h1>
-                <p
-                    style={{
-                        textAlign: "center",
-                        marginBottom: "40px",
-                        color: colors.text,
-                    }}
-                >
+                <p style={{ textAlign: "center", marginBottom: "40px", color: colors.text }}>
                     A showcase of my completed projects
                 </p>
 
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
-                        gap: "20px",
-                    }}
-                >
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
                     {projects.map((project, index) => (
                         <div
                             key={index}
@@ -183,34 +180,15 @@ function App() {
                     background: colors.mainBg,
                 }}
             >
-                <h1
-                    style={{
-                        textAlign: "center",
-                        marginBottom: "10px",
-                        color: colors.accent,
-                    }}
-                >
+                <h1 style={{ textAlign: "center", marginBottom: "10px", color: colors.accent }}>
                     University Projects
                 </h1>
 
-                <p
-                    style={{
-                        textAlign: "center",
-                        marginBottom: "40px",
-                        color: colors.text,
-                    }}
-                >
+                <p style={{ textAlign: "center", marginBottom: "40px", color: colors.text }}>
                     Academic projects completed during my university studies
                 </p>
 
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
-                        gap: "20px",
-                    }}
-                >
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
                     {uniProjects.map((project, index) => (
                         <div
                             key={index}
@@ -245,29 +223,6 @@ function App() {
                         </div>
                     ))}
                 </div>
-            </div>
-            {/* CONTACT SECTION */}
-            <div
-                id="contacts"
-                style={{
-                    fontFamily: "Arial, sans-serif",
-                    padding: "40px",
-                    background: colors.mainBg,
-                    textAlign: "center",
-                }}
-            >
-                <h1 style={{ color: colors.accent, marginBottom: "20px" }}>
-                    Contact Me
-                </h1>
-                <p style={{ color: colors.text, marginBottom: "10px" }}>
-                    Email: <a href="anthonysoltvedt1996@gmail.com" style={{ color: colors.accent }}>anthonysoltvedt1996@gmail.com</a>
-                </p>
-                <p style={{ color: colors.text, marginBottom: "10px" }}>
-                    LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" style={{ color: colors.accent }}>linkedin.com/in/your-linkedin</a>
-                </p>
-                <p style={{ color: colors.text }}>
-                    GitHub: <a href="https://github.com/AnthonySoltvedt" target="_blank" rel="noopener noreferrer" style={{ color: colors.accent }}>github.com/AnthonySoltvedt</a>
-                </p>
             </div>
 
             {/* FOOTER / CONTACT */}
