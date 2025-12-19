@@ -20,13 +20,13 @@ const projects = [
         title: "To-Do List CLI (Java)",
         description:
             "A command-line Java application with tasks, reminders, priority, and undo functionality.",
-        link: "https://github.com/AnthonySoltvedt/ToDoListCLI",
+        link: "https://github.com/AnthonySoltvedt/To-do-list-applications",
     },
     {
         title: "BBJ Tracker App",
         description:
             "A tracker app for logging BBJ sessions, progress, and personal routines.",
-        link: "https://github.com/AnthonySoltvedt/BBJTrackerApp",
+        link: "https://github.com/AnthonySoltvedt/bjj-tracker/blob/main/bjj_tracker.py",
     },
 ];
 
@@ -35,11 +35,13 @@ const uniProjects = [
         title: "Advanced Programming",
         description:
             "Built a prototype application that processes and reshapes data from a provided dataset to generate specific outputs. Focused on data transformation, formatting, and structured output generation using modular program design.",
+        link: "https://github.com/AnthonySoltvedt/Advanced-programming/blob/main/Assesment-1.ipynb",
     },
     {
         title: "Big Data Analytics",
         description:
             "Built a data mining application that cleans and analyses rental housing data using regression and classification techniques to identify key problem areas related to rent increases and generate targeted insights.",
+        link: "https://github.com/AnthonySoltvedt/Big-Data-Project/blob/main/Rental%20Price%20Prediction%20and%20Data%20Analysis.ipynb",
     },
 ];
 
@@ -223,6 +225,23 @@ function App() {
                         >
                             <h2 style={{ color: colors.accent }}>{project.title}</h2>
                             <p>{project.description}</p>
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    display: "inline-block",
+                                    marginTop: "10px",
+                                    padding: "8px 15px",
+                                    borderRadius: "5px",
+                                    backgroundColor: colors.buttonBg,
+                                    color: colors.buttonText,
+                                    textDecoration: "none",
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                View Project
+                            </a>
                         </div>
                     ))}
                 </div>
@@ -240,6 +259,27 @@ function App() {
             >
                 © {new Date().getFullYear()} Anthony Soltvedt — All Rights Reserved
             </footer>
+
+            {/* BACK TO TOP BUTTON */}
+            <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                style={{
+                    position: "fixed",
+                    bottom: "20px",
+                    right: "20px",
+                    padding: "10px 15px",
+                    borderRadius: "50%",
+                    background: colors.buttonBg,
+                    color: colors.buttonText,
+                    border: "none",
+                    cursor: "pointer",
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                    fontWeight: "bold",
+                    zIndex: 1000,
+                }}
+            >
+                ↑ Top
+            </button>
         </>
     );
 }
