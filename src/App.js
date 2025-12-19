@@ -246,6 +246,29 @@ function App() {
                     ))}
                 </div>
             </div>
+            {/* CONTACT SECTION */}
+            <div
+                id="contacts"
+                style={{
+                    fontFamily: "Arial, sans-serif",
+                    padding: "40px",
+                    background: colors.mainBg,
+                    textAlign: "center",
+                }}
+            >
+                <h1 style={{ color: colors.accent, marginBottom: "20px" }}>
+                    Contact Me
+                </h1>
+                <p style={{ color: colors.text, marginBottom: "10px" }}>
+                    Email: <a href="anthonysoltvedt1996@gmail.com" style={{ color: colors.accent }}>anthonysoltvedt1996@gmail.com</a>
+                </p>
+                <p style={{ color: colors.text, marginBottom: "10px" }}>
+                    LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" style={{ color: colors.accent }}>linkedin.com/in/your-linkedin</a>
+                </p>
+                <p style={{ color: colors.text }}>
+                    GitHub: <a href="https://github.com/AnthonySoltvedt" target="_blank" rel="noopener noreferrer" style={{ color: colors.accent }}>github.com/AnthonySoltvedt</a>
+                </p>
+            </div>
 
             {/* FOOTER / CONTACT */}
             <footer
