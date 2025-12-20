@@ -224,6 +224,54 @@ function App() {
                     ))}
                 </div>
             </div>
+            {/* CONTACT SECTION */}
+            <div
+                id="contacts"
+                style={{
+                    fontFamily: "Arial, sans-serif",
+                    padding: "40px",
+                    background: colors.mainBg,
+                    textAlign: "center",
+                }}
+            >
+                <h1 style={{ color: colors.accent, marginBottom: "20px" }}>
+                    Contact
+                </h1>
+
+                <p style={{ color: colors.text, marginBottom: "10px" }}>
+                    Email:{" "}
+                    <a
+                        href="anthonysoltvedt1996@gmail.com"
+                        style={{ color: colors.accent, textDecoration: "none", fontWeight: "bold" }}
+                    >
+                        anthonysoltvedt1996@gmail.com
+                    </a>
+                </p>
+
+                <p style={{ color: colors.text, marginBottom: "10px" }}>
+                    GitHub:{" "}
+                    <a
+                        href="https://github.com/AnthonySoltvedt"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: colors.accent, textDecoration: "none", fontWeight: "bold" }}
+                    >
+                        github.com/AnthonySoltvedt
+                    </a>
+                </p>
+
+                <p style={{ color: colors.text }}>
+                    LinkedIn:{" "}
+                    <a
+                        href="https://www.linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: colors.accent, textDecoration: "none", fontWeight: "bold" }}
+                    >
+                        View Profile
+                    </a>
+                </p>
+            </div>
 
             {/* FOOTER / CONTACT */}
             <footer
