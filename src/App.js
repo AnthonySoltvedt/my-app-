@@ -17,6 +17,16 @@ const colors = {
     footerText: "#6B6B6B",
 };
 
+const backendProjects = [
+    {
+        title: "FastLibrary API",
+        description: "A REST API built with FastAPI to manage books and library members. Supports CRUD operations, data validation with Pydantic, automated testing, and is deployment-ready. Can integrate with frontends or AI/data pipelines.",
+        link: "https://github.com/AnthonySoltvedt/FastLibrary",
+        liveLink: "https://znf7ebb0kk.execute-api.eu-north-1.amazonaws.com/prod",
+        tech: ["Python", "FastAPI", "Pydantic", "REST API", "Uvicorn", "AWS", "Automated Testing"]
+    },
+];
+
 const projects = [
     {
         title: "To-Do List CLI (Java)",
@@ -32,9 +42,15 @@ const projects = [
     },
     {
         title: "Music Genre Classifier (CNN + MFCC)",
-        description: "A machine learning application that extracts MFCC features from audio files and uses a CNN to classify music genres such as jazz, rock, and pop.",
+        description: "A machine learning project that extracts MFCC features from audio files and trains a CNN to classify music genres such as jazz, rock, and pop.",
         link: "https://github.com/AnthonySoltvedt/music-genre-classifier",
         tech: ["Python", "TensorFlow", "Keras", "CNN", "Audio Processing"]
+    },
+    {
+        title: "Music Recommendation System",
+        description: "A Python application that extracts audio features, calculates track similarity, and provides top music recommendations based on user-selected tracks.",
+        link: "https://github.com/AnthonySoltvedt/music-recommendation-system",
+        tech: ["Python", "Pandas", "NumPy", "MFCC", "Feature Engineering", "Recommendation System"]
     },
 ];
 
@@ -54,6 +70,73 @@ const uniProjects = [
 ];
 
 function App() {
+    const renderProjectCard = (project) => (
+        <div style={{
+            background: colors.cardBg,
+            width: "300px",
+            padding: "20px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            transition: "transform 0.2s, background 0.2s",
+            cursor: "pointer",
+        }}
+             onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; e.currentTarget.style.background = colors.cardHoverBg; }}
+             onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.background = colors.cardBg; }}
+        >
+            <h2 style={{ color: colors.accent }}>{project.title}</h2>
+
+            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "5px", marginBottom: "10px" }}>
+                {project.tech.map((tech, i) => (
+                    <span key={i} style={{
+                        backgroundColor: colors.techPillBg,
+                        color: colors.techPillText,
+                        padding: "4px 10px",
+                        borderRadius: "15px",
+                        fontSize: "0.8rem",
+                    }}>{tech}</span>
+                ))}
+            </div>
+
+            <p>{project.description}</p>
+
+            {/* Buttons */}
+            <div style={{ display: "flex", justifyContent: "center", gap: "10px", marginTop: "10px" }}>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" style={{
+                    display: "inline-block",
+                    padding: "8px 15px",
+                    borderRadius: "5px",
+                    backgroundColor: colors.buttonBg,
+                    color: colors.buttonText,
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                }}>
+                    View Project
+                </a>
+
+                {project.liveLink && (
+                    <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            display: "inline-block",
+                            padding: "8px 15px",
+                            borderRadius: "5px",
+                            backgroundColor: "#4CAF50",
+                            color: "#FFFFFF",
+                            textDecoration: "none",
+                            fontWeight: "bold",
+                        }}
+                        title="Deployed on AWS" // <-- tooltip
+                    >
+                        Live API
+                    </a>
+                )}
+            </div>
+        </div>
+    );
+
     return (
         <>
             {/* HEADER */}
@@ -64,7 +147,9 @@ function App() {
             {/* NAVBAR */}
             <nav style={{ display: "flex", justifyContent: "center", gap: "30px", padding: "15px", background: colors.navbarBg }}>
                 <a href="#about-me" style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}>About Me</a>
+                <a href="#backend-projects" style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}>Backend/API</a>
                 <a href="#projects" style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}>Projects</a>
+                <a href="#uni-projects" style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}>University</a>
                 <a href="#contacts" style={{ color: colors.textLight, textDecoration: "none", fontWeight: "bold" }}>Contact</a>
             </nav>
 
@@ -77,57 +162,21 @@ function App() {
                 </p>
             </div>
 
-            {/* PROJECTS */}
-            <div id="projects" style={{ fontFamily: "Arial, sans-serif", padding: "40px", background: colors.mainBg }}>
-                <h1 style={{ textAlign: "center", marginBottom: "10px", color: colors.accent }}>Anthony’s Programming Projects</h1>
-                <p style={{ textAlign: "center", marginBottom: "40px", color: colors.text }}>A showcase of my completed projects</p>
-
+            {/* BACKEND/API PROJECTS */}
+            <div id="backend-projects" style={{ fontFamily: "Arial, sans-serif", padding: "40px", background: colors.mainBg }}>
+                <h1 style={{ textAlign: "center", marginBottom: "10px", color: colors.accent }}>Backend/API Projects</h1>
+                <p style={{ textAlign: "center", marginBottom: "40px", color: colors.text }}>Showcasing deployed APIs and backend solutions</p>
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
-                    {projects.map((project, index) => (
-                        <div key={index} style={{
-                            background: colors.cardBg,
-                            width: "300px",
-                            padding: "20px",
-                            borderRadius: "10px",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                            textAlign: "center",
-                            transition: "transform 0.2s, background 0.2s",
-                            cursor: "pointer",
-                        }}
-                             onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; e.currentTarget.style.background = colors.cardHoverBg; }}
-                             onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.background = colors.cardBg; }}
-                        >
-                            <h2 style={{ color: colors.accent }}>{project.title}</h2>
+                    {backendProjects.map(renderProjectCard)}
+                </div>
+            </div>
 
-                            {/* TECH STACK PILL DISPLAY */}
-                            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "5px", marginBottom: "10px" }}>
-                                {project.tech.map((tech, i) => (
-                                    <span key={i} style={{
-                                        backgroundColor: colors.techPillBg,
-                                        color: colors.techPillText,
-                                        padding: "4px 10px",
-                                        borderRadius: "15px",
-                                        fontSize: "0.8rem",
-                                    }}>{tech}</span>
-                                ))}
-                            </div>
-
-                            <p>{project.description}</p>
-
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" style={{
-                                display: "inline-block",
-                                marginTop: "10px",
-                                padding: "8px 15px",
-                                borderRadius: "5px",
-                                backgroundColor: colors.buttonBg,
-                                color: colors.buttonText,
-                                textDecoration: "none",
-                                fontWeight: "bold",
-                            }}>
-                                View Project
-                            </a>
-                        </div>
-                    ))}
+            {/* FRONTEND/OTHER PROJECTS */}
+            <div id="projects" style={{ fontFamily: "Arial, sans-serif", padding: "40px", background: colors.mainBg }}>
+                <h1 style={{ textAlign: "center", marginBottom: "10px", color: colors.accent }}>Programming Projects</h1>
+                <p style={{ textAlign: "center", marginBottom: "40px", color: colors.text }}>A showcase of my completed projects</p>
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
+                    {projects.map(renderProjectCard)}
                 </div>
             </div>
 
@@ -135,47 +184,8 @@ function App() {
             <div id="uni-projects" style={{ fontFamily: "Arial, sans-serif", padding: "40px", background: colors.mainBg }}>
                 <h1 style={{ textAlign: "center", marginBottom: "10px", color: colors.accent }}>University Projects</h1>
                 <p style={{ textAlign: "center", marginBottom: "40px", color: colors.text }}>Academic projects completed during my university studies</p>
-
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
-                    {uniProjects.map((project, index) => (
-                        <div key={index} style={{
-                            background: colors.cardBg,
-                            width: "300px",
-                            padding: "20px",
-                            borderRadius: "10px",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                            textAlign: "center",
-                        }}>
-                            <h2 style={{ color: colors.accent }}>{project.title}</h2>
-
-                            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "5px", marginBottom: "10px" }}>
-                                {project.tech.map((tech, i) => (
-                                    <span key={i} style={{
-                                        backgroundColor: colors.techPillBg,
-                                        color: colors.techPillText,
-                                        padding: "4px 10px",
-                                        borderRadius: "15px",
-                                        fontSize: "0.8rem",
-                                    }}>{tech}</span>
-                                ))}
-                            </div>
-
-                            <p>{project.description}</p>
-
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" style={{
-                                display: "inline-block",
-                                marginTop: "10px",
-                                padding: "8px 15px",
-                                borderRadius: "5px",
-                                backgroundColor: colors.buttonBg,
-                                color: colors.buttonText,
-                                textDecoration: "none",
-                                fontWeight: "bold",
-                            }}>
-                                View Project
-                            </a>
-                        </div>
-                    ))}
+                    {uniProjects.map(renderProjectCard)}
                 </div>
             </div>
 
@@ -189,7 +199,7 @@ function App() {
                     GitHub: <a href="https://github.com/AnthonySoltvedt" target="_blank" rel="noopener noreferrer" style={{ color: colors.accent, textDecoration: "none", fontWeight: "bold" }}>github.com/AnthonySoltvedt</a>
                 </p>
                 <p style={{ color: colors.text }}>
-                    LinkedIn: <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: colors.accent, textDecoration: "none", fontWeight: "bold" }}>View Profile</a>
+                    LinkedIn: <a href="https://www.linkedin.com/in/anthony-soltvedt-2007062b8/" target="_blank" rel="noopener noreferrer" style={{ color: colors.accent, textDecoration: "none", fontWeight: "bold" }}>View Profile</a>
                 </p>
             </div>
 

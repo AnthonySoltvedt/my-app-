@@ -1,3 +1,16 @@
+# Node / JS dependencies
+node_modules/
+dist/
+build/
+
+# WebStorm IDE files
+.idea/
+
+# OS junk
+.DS_Store
+
+# Environment / secrets
+.env
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
